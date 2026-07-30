@@ -1,24 +1,26 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.library'  //  library 插件
+}
 
 android {
-	compileSdkVersion 21
-	buildToolsVersion "21.1.0"
-
-	defaultConfig {
-		applicationId "com.termux.view"
-		minSdkVersion 21
-		targetSdkVersion 28
-		// namespace "com.termux.view"
-		// minSdk 21
-		// targetSdk 28
-
-		versionCode 1020
-		versionName "0.119.0-beta.1"
-	}
+    namespace 'com.termux.view'  // 命名空间
+    compileSdk 34
+    
+    defaultConfig {
+        minSdk 21
+        targetSdk 34
+        versionCode 1020
+        versionName "0.119.0-beta.1"
+    }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
 }
 
 dependencies {
-	compile fileTree(dir: 'libs', include: ['*.jar'])
-	implementation "androidx.annotation:annotation:1.3.0"
-	api project(":terminal-emulator")
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "androidx.annotation:annotation:1.8.0"
+    api project(":terminal-emulator")  // api 可以保留，暴露给 app 模块
 }

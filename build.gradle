@@ -2,11 +2,15 @@
 
 buildscript {
     repositories {
-        jcenter()
+        google()                    //AGP 从 Google 仓库下载
+        mavenCentral()              //  替代 jcenter（jcenter 已废弃）
+        //保留阿里云镜像加速（可选）
+        maven { url 'https://maven.aliyun.com/repository/public/' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.+'
-
+        // 升级 AGP 到 8.x（兼容 Gradle 9.6.1 + Java 21）
+        classpath 'com.android.tools.build:gradle:8.5.2'
+        
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -14,11 +18,13 @@ buildscript {
 
 allprojects {
     repositories {
-		maven { url 'https://maven.aliyun.com/repository/public/' } 
-        maven { url 'http://repo1.maven.org/maven2/' } 
-        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+        google()
+        mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://jitpack.io' }
+        // 以下仓库可能已废弃，但保留兼容
+        maven { url 'https://dl.bintray.com/ppartisan/maven/' } 
         maven { url "https://clojars.org/repo/" }
-        maven { url "https://jitpack.io" }
-		jcenter()        
-	}
+        // jcenter() 已废弃，移除
+    }
 }
