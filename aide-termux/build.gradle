@@ -6,6 +6,7 @@ android {
     
     defaultConfig {
         applicationId "com.aide.termux"
+        namespace "com.aide.termux"
         minSdk 24
         targetSdk 34
         versionCode 1021

@@ -7,7 +7,7 @@ android {
     compileSdk 34  // 升级到 34
     
     defaultConfig {
-        applicationId "com.aide.termux"  // 确认包名
+        applicationId "com.termux"  // 确认包名
         minSdk 24
         targetSdk 34
         versionCode 1021
